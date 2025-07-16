@@ -1,0 +1,28 @@
+<div class="p-6 max-w-2xl mx-auto">
+  @if (userId === '') {
+  <div class="flex flex-col items-center justify-center h-screen">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your Name</mat-label>
+      <input matInput placeholder="pEnter your name" [formControl]="userName" />
+    </mat-form-field>
+    <button mat-raised-button class="rounded-md">Join</button>
+  </div>
+  } @if (userId) {
+  <div class="flex flex-col">
+    <div class="flex space-x-2 mb-4">
+      <input
+        class="flex-1 border rounded px-3 py-2"
+        [(ngModel)]="text"
+        placeholder="Type your message"
+      />
+      <button class="bg-green-600 text-white px-4 py-2 rounded">Send</button>
+    </div>
+    <div class="space-y-2">
+      <!-- <div *ngFor="let m of chat.messages$ | async" class="p-2 border rounded">
+        <strong>{{ m.userName }}:</strong> {{ m.text }}
+        <span class="text-sm text-gray-500 ml-2">[Sentiment: {{ m.sentiment }}]</span>
+      </div> -->
+    </div>
+  </div>
+  }
+</div>
