@@ -1,4 +1,4 @@
-# 🗨️ chat-app
+# Task 1. 🗨️ chat-app
 A modern real-time chat application with Angular frontend styled using Tailwind CSS and a Node.js backend using Express, Socket.io, and MongoDB with Mongoose ORM. Supports asynchronous sentiment analysis to update message sentiment live
 
 
@@ -25,9 +25,8 @@ A full-stack **real-time chat application** featuring:
 
 **Frontend:**
 - Angular
-- Tailwind CSS
+- Material UI (Angular Matrial)
 - Socket.io-client
-- Axios
 
 **Backend:**
 - Node.js
@@ -54,5 +53,19 @@ chat-app/
 │   ├── index.js
 │   └── package.json
 └── frontend/
-    ├── (Angular project: components, services, etc.)
-    └── package.json
+|   ├── (Angular project: components, services, etc.)
+|   └── package.json
+|
+|── userActivity
+    ├── models
+    │   └── userActivity.model.js
+    ├── package-lock.json
+    ├── package.json
+    ├── routes
+    │   └── activity.routes.js
+    └── server.js
+
+```
+
+
+## Task 2: User Activity Tracking API 
