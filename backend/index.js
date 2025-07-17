@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const { Server } = require('socket.io');
 require('dotenv').config();
 
-
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -16,10 +15,11 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI , {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose
+    .connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.error('MongoDB connection error:', err));
 
@@ -29,17 +29,22 @@ app.use('/', routes);
 
 // Socket.io connection
 const Message = require('./models/message.schema');
+
+console.log(io);
+
 io.on('connection', async (socket) => {
     console.log('Client connected:', socket.id);
 
     // Send existing messages
     const messages = await Message.find().sort({ createdAt: 1 }).populate('userId', 'name');
-    const formatted = messages.map(msg => ({
+
+    const formatted = messages.map((msg) => ({
         id: msg._id,
         text: msg.text,
         sentiment: msg.sentiment,
         userName: msg.userId.name
     }));
+
     socket.emit('initMessages', formatted);
 
     socket.on('disconnect', () => {

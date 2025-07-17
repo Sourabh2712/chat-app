@@ -7,5 +7,6 @@ const messageController = require("../controllers/message.controller");
 module.exports = (io) => {
   router.post("/join", userController.joinChat);
   router.post("/message", messageController.sendMessage(io));
+  
   return router;
 };

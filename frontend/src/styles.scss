@@ -1,15 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@use "tailwindcss";
+// regular style toast
+@use 'ngx-toastr/toastr';
 
-/* Import Angular Material theme (if using SCSS, adapt path as needed) */
-@use '@angular/material/prebuilt-themes/indigo-pink.css';
 
 html,
 body {
     height: 100%;
 }
-
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

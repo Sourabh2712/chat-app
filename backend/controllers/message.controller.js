@@ -1,10 +1,14 @@
 const Message = require('../models/message.schema');
 const User = require('../models/user.schema');
 
+const positiveTags = ['happy', 'love', 'great', 'like', 'amazing', 'awesome'];
+const negativeTags = ['sad', 'angry', 'bad'];
+
 // Simple sentiment analysis
 function getSentiment(text) {
     const lower = text.toLowerCase();
-    if (lower.includes('happy') || lower.includes('love') || lower.includes('great'))
+    if (lower.includes('happy') || lower.includes('love') || lower.includes('great') || lower.includes('like') || lower.includes('amazing'))
+
         return 'positive';
     if (lower.includes('sad') || lower.includes('angry') || lower.includes('bad'))
         return 'negative';
